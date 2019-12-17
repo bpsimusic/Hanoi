@@ -87,7 +87,6 @@ export default class Game extends React.Component {
     }
 
     checkIfSelected(tower) {
-        debugger
         if (this.state.clicked === tower) {
             return 'selected';
         } else {
