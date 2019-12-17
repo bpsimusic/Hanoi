@@ -10,6 +10,8 @@ export default class Game extends React.Component {
             right: [],
             clicked: null
         }
+
+        this.checkIfSelected = this.checkIfSelected.bind(this);
     }
 
     //implement this method
@@ -41,25 +43,25 @@ export default class Game extends React.Component {
             <div>
                 <div className="title">Towers of Hanoi</div>
                 <div className="game">
-                    <div className={`tower ${this.checkIfSelected.call(this, 'left')}`}>
+                    <div className={`tower ${this.checkIfSelected('left')}`}>
                         {
-                            left.map((disk)=>{
-                                return <Disk key={disk.val} val={disk.val} className={disk.className}/>
+                            left.map(({val, className})=>{
+                                return <Disk key={val} val={val} className={className}/> 
                             })
                         }
                     </div>
                         
-                    <div className={`tower ${this.checkIfSelected.call(this, 'middle')}`}>
+                    <div className={`tower ${this.checkIfSelected('middle')}`}>
                         {
-                            middle.map((disk, idx)=>{
-                                return <Disk key={disk.val} val={disk.val} className={disk.className}/> 
+                            middle.map(({val, className})=>{
+                                return <Disk key={val} val={val} className={className}/> 
                             })
                         }
                     </div>
-                    <div className={`tower ${this.checkIfSelected.call(this, 'right')}`}>
+                    <div className={`tower ${this.checkIfSelected('right')}`}>
                         {
-                            right.map((disk, idx)=>{
-                                return <Disk key={disk.val} val={disk.val} className={disk.className}/>  
+                            right.map(({val, className})=>{
+                                return <Disk key={val} val={val} className={className}/> 
                             })
                         }
                     </div>

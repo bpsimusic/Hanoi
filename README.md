@@ -4,6 +4,8 @@ The goal is to test the candidate's experience with React. You will primarily be
 
 The skeleton contains the project from which you will be working; you can reference the solution in the solution folder.
 
+Be sure to run npm install first, otherwise npm start won't work. 
+
 ## Available Scripts
 
 In either project directory skeleton/solution, you can run:

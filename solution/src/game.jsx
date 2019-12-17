@@ -11,14 +11,15 @@ export default class Game extends React.Component {
             clicked: null
         }
         this.handleClick = this.handleClick.bind(this);
+        this.checkIfSelected = this.checkIfSelected.bind(this);
     }
 
     handleClick(tower) {
-        if (!this.state.clicked) {
+        const {clicked} = this.state;
+        if (!clicked) {
             this.setState({clicked: tower});
         } else {
-            let firstClickedTower = this.state.clicked;
-            this.moveDisk(firstClickedTower, tower);
+            this.moveDisk(clicked, tower);
             this.setState({clicked: null});
         }
     }
@@ -101,30 +102,30 @@ export default class Game extends React.Component {
             <div>
                 <div className="title">Towers of Hanoi</div>
                 <div className="game">
-                    <div className={`tower ${this.checkIfSelected.call(this, 'left')}`} onClick={this.handleClick.bind(this, 'left')}>
+                    <div className={`tower ${this.checkIfSelected('left')}`}>
                         {
-                            left.map((disk)=>{
-                                return <Disk key={disk.val} val={disk.val} className={disk.className}/>
+                            left.map(({val, className})=>{
+                                return <Disk key={val} val={val} className={className}/> 
                             })
                         }
                     </div>
                         
-                    <div className={`tower ${this.checkIfSelected.call(this, 'middle')}`} onClick={this.handleClick.bind(this, 'middle')}>
+                    <div className={`tower ${this.checkIfSelected('middle')}`}>
                         {
-                            middle.map((disk, idx)=>{
-                                return <Disk key={disk.val} val={disk.val} className={disk.className}/> 
+                            middle.map(({val, className})=>{
+                                return <Disk key={val} val={val} className={className}/> 
                             })
                         }
                     </div>
-                    <div className={`tower ${this.checkIfSelected.call(this, 'right')}`} onClick={this.handleClick.bind(this, 'right')}>
+                    <div className={`tower ${this.checkIfSelected('right')}`}>
                         {
-                            right.map((disk, idx)=>{
-                                return <Disk key={disk.val} val={disk.val} className={disk.className}/>  
+                            right.map(({val, className})=>{
+                                return <Disk key={val} val={val} className={className}/> 
                             })
                         }
                     </div>
                 </div>
             </div>
         )
-    }       
+    }           
 }
