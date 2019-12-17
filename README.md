@@ -1,5 +1,3 @@
-This project will be used for onsites at Instride. Feel free to manipulate/redesign this interview to your liking.
-
 The goal is to test the candidate's experience with React. You will primarily be working on the src/game.jsx file. The candidate will be pair programming with the engineer to complete the game Towers of Hanoi. Candidate will be giving directions while engineer will be driving. 
 
 The skeleton contains the project from which you will be working; you can reference the solution in the solution folder.
